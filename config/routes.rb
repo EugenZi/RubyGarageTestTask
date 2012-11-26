@@ -1,4 +1,6 @@
 TaskList::Application.routes.draw do
+  get "index/index"
+
   devise_for :users
 
   root :to => "index#index"
