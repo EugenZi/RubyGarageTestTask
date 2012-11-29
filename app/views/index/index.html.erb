@@ -1,9 +1,23 @@
-<div ng-controller="ProjectsController">
-  	<h1>{{asd}}</h1>
-	<p>Find me in app/views/index/index.html.erb</p>
+<div class="head span12">
+  <h1></h1>
 </div>
-
-<table>
-    <tr><th>row number</th></tr>
-    <tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i}}</td></tr>
-  </table>
+<div ng-controller="ProjectsController" class="block">
+    <table border="1" class="fill">
+        <thead>
+            <tr class="block_top">
+              <th colspan="4">row number</th>
+            </tr>
+            <tr class="block_middle">
+                <th colspan="4">row number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="l in itemsList">
+              <td>{{l.id}}</td>
+              <td>{{l.name}}</td>
+              <td>{{l.created_at}}</td>
+              <td>{{l.updated_at}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

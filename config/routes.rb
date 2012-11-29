@@ -1,10 +1,10 @@
 TaskList::Application.routes.draw do
-  get "index/index"
-
   devise_for :users
 
+  get "list" => "index#list"
+
   root :to => "index#index"
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
