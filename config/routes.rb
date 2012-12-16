@@ -1,5 +1,7 @@
 TaskList::Application.routes.draw do
-  devise_for :users
+  devise_for :users do 
+      get 'logout' => 'devise/sessions#destroy'
+  end
 
   get "list" => "index#list"
 

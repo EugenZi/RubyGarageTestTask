@@ -13,25 +13,10 @@
     <![endif]-->
 
     <%= stylesheet_link_tag "application", :media => "all" %>
-
-    <!-- For third-generation iPad with high-resolution Retina display: -->
-    <!-- Size should be 144 x 144 pixels -->
     <%= favicon_link_tag 'images/apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
-
-    <!-- For iPhone with high-resolution Retina display: -->
-    <!-- Size should be 114 x 114 pixels -->
     <%= favicon_link_tag 'images/apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
-
-    <!-- For first- and second-generation iPad: -->
-    <!-- Size should be 72 x 72 pixels -->
     <%= favicon_link_tag 'images/apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
-
-    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-    <!-- Size should be 57 x 57 pixels -->
     <%= favicon_link_tag 'images/apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
-
-    <!-- For all other devices -->
-    <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'images/favicon.ico', :rel => 'shortcut icon' %>
   </head>
   <body>
@@ -47,9 +32,7 @@
           <a class="brand" href="#">TaskList</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to('Logout', destroy_user_session_path, :method => 'delete')  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -57,9 +40,7 @@
     </div>
 
     <div class="container">
-        <div class="row">
       	<% if(!flash.nil?) %>
-       	<div class="span12">
        		<% flash.map do |type, message| %>
        			<div class="alert alert-<%= type %>">
        				<button type="button" class="close" data-dismiss="<%= type %>">×</button>
@@ -67,34 +48,13 @@
        				<%= message %>
        			</div>
        		<% end %>
-       	</div>
        	<% end %>	
-          <div class="span12">
-             <%= yield %>
-          </div>
-          <!-- <div class="span3">
-            <div class="well sidebar-nav">
-              <h3>Sidebar</h3>
-              <ul class="nav nav-list">
-                <li class="nav-header">Sidebar</li>
-                <li><%= link_to "Link1", "/path1"  %></li>
-                <li><%= link_to "Link2", "/path2"  %></li>
-                <li><%= link_to "Link3", "/path3"  %></li>
-              </ul>
-            </div>
-          </div> -->
-        </div><!--/row-->
-
+        <%= yield %>
       <footer>
         <p>&copy; Company 2012</p>
       </footer>
 
-    </div> <!-- /container -->
-
-    <!-- Javascripts
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    </div> 
     <%= javascript_include_tag "application" %>
-
   </body>
 </html>
