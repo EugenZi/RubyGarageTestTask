@@ -11,8 +11,34 @@ class IndexController < ApplicationController
     end
   end
 
-  def create_todo
+  def create_todo_list
+  	@project = Project.new
+  	input_params = params[:project]
+  	@project.name = input_params[:name]
+  	@project.user_id = current_user.id
+  	@project.save()
+  	respond_to do |format|
+      format.json { render :json => @projects }
+    end
+  end
 
+  def update_todo_list
+
+  end
+
+  def delete_todo_list
+
+  end
+
+  def create_todo
+  	@project = Project.new
+  	@project.name = params[:project[:name]]
+  	@project.user_id = current_user.id
+  	@project.save()
+  end
+
+  def update_todo_list
+  	
   end
 
   def delete_todo

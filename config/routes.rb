@@ -5,6 +5,7 @@ TaskList::Application.routes.draw do
 
   get "list" => "index#list"
   post "create_todo" => "index#create_todo"
+  post "create_todo_list" => "index#create_todo_list"
   post "edit_todo" => "index#edit_todo"
   root :to => "index#index"
 

@@ -9,7 +9,9 @@
                 <img src="/img/todo_head_left.jpg" alt="description">
               </th>
               <th>
-                <input type="text" value="{{p.name}}" disabled="disabled" class="list_name disabled">
+                <form class="disabled">
+                      <input ng-model="text" ng-change="saveTodoList($event)" type="text" value="{{p.name}}" disabled="disabled" class="list_name disabled">
+                </form>
               </th>
               <th>
                 <a href="#" ng-click="editTodoList($event)">
@@ -37,6 +39,31 @@
               <td>{{l.updated_at}}</td>
             </tr>
         </tbody>
+    </table>
+    <table border="1" class="fill" id="form_hidden">
+        <thead>
+            <tr class="block_top">
+              <th>
+                <img src="/img/todo_head_left.jpg" alt="description">
+              </th>
+              <th>
+                <%= form_for @project, url: {action: "create_todo_list"} do |f| %>
+                  <%= f.text_field :name %>
+                <% end %>
+              </th>
+              <th>
+                <a href="#" ng-click="editTodoList($event)">
+                  <img src="/img/todo_edit.jpg" alt="description">
+                </a>
+                <a href="#" ng-click="deleteTodoList($event)">
+                  <img src="/img/todo_del.jpg" alt="description">
+                </a>
+              </th>
+              <th>
+                
+              </th>
+            </tr>
+        </thead>
     </table>
     <div class="add_todo">
       <a href="/projects/create" ng-click="addTodoList($event)">
