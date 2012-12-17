@@ -5,8 +5,10 @@ TaskList::Application.routes.draw do
 
   get "list" => "index#list"
   post "create_todo" => "index#create_todo"
-  post "create_todo_list" => "index#create_todo_list"
   post "edit_todo" => "index#edit_todo"
+  post "create_todo_list" => "index#create_todo_list"
+  get "update_todo_list" => "index#update_todo_list"
+  get "delete_todo_list" => "index#delete_todo_list"
   root :to => "index#index"
 
   # The priority is based upon order of creation:

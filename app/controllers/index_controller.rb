@@ -23,11 +23,21 @@ class IndexController < ApplicationController
   end
 
   def update_todo_list
-
+  	@project = Project.find(params[:id])
+  	@project.name = params[:name]
+  	@project.save()
+  	@projects = Project.all
+  	respond_to do |format|
+      format.json { render :json => @projects }
+    end
   end
 
   def delete_todo_list
-
+  	@project = Project.find(params[:id])
+  	@project.delete()
+  	respond_to do |format|
+      format.json { render :json => Project.all }
+    end
   end
 
   def create_todo
@@ -37,7 +47,7 @@ class IndexController < ApplicationController
   	@project.save()
   end
 
-  def update_todo_list
+  def update_list
   	
   end
 
