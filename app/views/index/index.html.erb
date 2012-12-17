@@ -27,8 +27,19 @@
                 </th>
               </tr>
               <tr class="block_middle">
-                  <th colspan="4">
-
+                  <th>
+                      <img src="/img/plus.jpg" alt="">
+                  </th>
+                  <th class="add_task">
+                      <form action="/add_task?list_id={{p.id}}">
+                        <input type="text" name="title" value="Start typing here to create a task...">
+                      </form>
+                  </th>
+                  <th>
+                      
+                  </th>
+                  <th>
+                      
                   </th>
               </tr>
           </thead>
@@ -44,28 +55,30 @@
           </tbody>
       </table>
     </div>
-    <table border="1" class="fill" id="form_hidden">
-        <thead>
-            <tr class="block_top">
-              <th>
-                <img src="/img/todo_head_left.jpg" alt="description">
-              </th>
-              <th>
-                <%= form_for @project, url: {action: "create_todo_list"} do |f| %>
-                  <%= f.text_field :name %>
-                <% end %>
-              </th>
-              <th>
-                <a href="#" class="delete_empty_todo_list">
-                  <img src="/img/todo_del.jpg" alt="description">
-                </a>
-              </th>
-              <th>
-                
-              </th>
-            </tr>
-        </thead>
-    </table>
+    <div id="form_hidden" class="item">
+      <table border="1" class="fill">
+          <thead>
+              <tr class="block_top">
+                <th>
+                  <img src="/img/todo_head_left.jpg" alt="description">
+                </th>
+                <th>
+                  <%= form_for @project, url: {action: "create_todo_list"} do |f| %>
+                    <%= f.text_field :name %>
+                  <% end %>
+                </th>
+                <th>
+                  <a href="#" class="delete_empty_todo_list">
+                    <img src="/img/todo_del.jpg" alt="description">
+                  </a>
+                </th>
+                <th>
+                  
+                </th>
+              </tr>
+          </thead>
+      </table>
+    </div>
     <div class="add_todo">
       <a href="/projects/create" ng-click="addTodoList($event)">
         <img src="/img/add_todo.png" alt="add todo list" />

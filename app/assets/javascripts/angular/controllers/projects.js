@@ -29,12 +29,14 @@
 	  	});
 
 	  	$('.delete_empty_todo_list').live('click',function(event){
-	  		$(this).closest(".fill").remove();
+	  		$(this).closest(".item").remove();
 			event.preventDefault(true);
 	  	});
 
 	  	$scope.addTodoList = function($event) {
-	    	var form_table = $("#form_hidden").clone().insertAfter(".fill:last").removeAttr("id"),
+	    	var form_table = $("#form_hidden").clone()
+	    									  .insertAfter(".item:last")
+	    									  .removeAttr("id"),
 	    		form       = form_table.find('form');
 	    	form.live("submit", function(event){ 
 	    		var data = form.serialize(),
