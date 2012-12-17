@@ -2,44 +2,48 @@
   <h1></h1>
 </div>
 <div ng-controller="ProjectsController" class="block">
-    <table border="1" class="fill" ng-repeat="p in itemsList">
-        <thead>
-            <tr class="block_top">
-              <th>
-                <img src="/img/todo_head_left.jpg" alt="description">
-              </th>
-              <th>
-                <form class="edit_todo_list disabled" action="/update_todo_list.json?id={{p.id}}" method="get">
-                      <input ng-model="text" ng-change="saveTodoList($event)" type="text" value="{{p.name}}" disabled="disabled" class="list_name disabled" name="name">
-                </form>
-              </th>
-              <th>
-                <a href="#" ng-click="editTodoList($event)">
-                  <img src="/img/todo_edit.jpg" alt="description">
-                </a>
-                <a href="/delete_todo_list?id={{p.id}}" ng-click="deleteTodoList($event)">
-                  <img src="/img/todo_del.jpg" alt="description">
-                </a>
-              </th>
-              <th>
-                
-              </th>
-            </tr>
-            <tr class="block_middle">
-                <th colspan="4">
-
+    <div class="item" ng-repeat="p in itemsList">
+      <table class="fill">
+          <thead>
+              <tr class="block_top">
+                <th>
+                  <img src="/img/todo_head_left.jpg" alt="description">
                 </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="l in p.tasks">
-              <td>{{l.id}}</td>
-              <td>{{l.name}}</td>
-              <td>{{l.created_at}}</td>
-              <td>{{l.updated_at}}</td>
-            </tr>
-        </tbody>
-    </table>
+                <th>
+                  <form class="edit_todo_list disabled" action="/update_todo_list.json?id={{p.id}}" method="get">
+                        <input ng-model="text" ng-change="saveTodoList($event)" type="text" value="{{p.name}}" disabled="disabled" class="list_name disabled" name="name">
+                  </form>
+                </th>
+                <th>
+                  <a href="#" ng-click="editTodoList($event)">
+                    <img src="/img/todo_edit.jpg" alt="description">
+                  </a>
+                  <a href="/delete_todo_list?id={{p.id}}" ng-click="deleteTodoList($event)">
+                    <img src="/img/todo_del.jpg" alt="description">
+                  </a>
+                </th>
+                <th>
+                  
+                </th>
+              </tr>
+              <tr class="block_middle">
+                  <th colspan="4">
+
+                  </th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr ng-repeat="l in p.tasks">
+                <td class="checkbox">
+                  <input type="checkbox" name="cancel" value="{{l.id}}">
+                </td>
+                <td>{{l.name}}</td>
+                <td>{{l.created_at}}</td>
+                <td>{{l.updated_at}}</td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
     <table border="1" class="fill" id="form_hidden">
         <thead>
             <tr class="block_top">

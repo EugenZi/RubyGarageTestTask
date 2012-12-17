@@ -10,17 +10,60 @@ body{
     .block{
       width: 700px;
       margin: 0 auto;
-        .block_top{
-          background: url(/img/block_top_bg.png) left top repeat-x;
-          height: 51px;
-        }
-        .block_middle{
-          background: url(/img/block_middle_bg.jpg) left top repeat-x;
-          height: 40px;
-        }
+      .item{
+        border: none;
+        border-bottom: 1px solid #999;
+        border-radius: 0 0 10px 10px;
+        background: #fff;
+        padding-bottom: 5px;
+        margin-bottom: 30px;
         .fill{
           width: 100%;
+          border-collapse: collapse;
+          border:none;
+          overflow: hidden;
+          td{
+            border:none;
+          }
+          tbody{
+            tr{
+              border-left: 1px solid #aaa;
+              border-right: 1px solid #aaa;
+            }
+            td{
+              background: #fff;
+              border-bottom: 1px solid #999;
+              vertical-align: middle;
+              height: 48px;
+              line-height: 48px;
+              font-size: 14px;
+              font-weight: bold;
+              color: aaa; 
+              &.checkbox{
+                text-align: center;
+                padding: 0;
+                input[type="checkbox"]{
+                  float:none;
+                  display: inline-block;
+                  margin:0;
+                  padding: 0;
+                }
+              }
+            }
+          }
+          .block_top{
+            background: url(/img/block_top_bg.png) left top repeat-x;
+            height: 51px;
+            border: 1px solid #315589;
+          }
+          .block_middle{
+            background: url(/img/block_middle_bg.jpg) left top repeat-x;
+            height: 40px;
+            border: 1px solid #aaa;
+            border-top: none;
+          }
         }
+      }
     }
     .container{
       margin: 0 auto;
