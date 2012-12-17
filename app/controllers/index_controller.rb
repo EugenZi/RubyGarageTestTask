@@ -7,7 +7,7 @@ class IndexController < ApplicationController
   def list
     @projects = Project.where("user_id = #{current_user.id}")
     respond_to do |format|
-      format.json { render :json => @projects }
+      format.json { render :json => @projects.to_json({:include => :tasks}) }
     end
   end
 

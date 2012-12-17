@@ -17,7 +17,7 @@
                 <a href="#" ng-click="editTodoList($event)">
                   <img src="/img/todo_edit.jpg" alt="description">
                 </a>
-                <a href="/delete_todo_list.json?id={{p.id}}" ng-click="deleteTodoList($event)">
+                <a href="/delete_todo_list?id={{p.id}}" ng-click="deleteTodoList($event)">
                   <img src="/img/todo_del.jpg" alt="description">
                 </a>
               </th>
@@ -32,7 +32,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="l in itemsList.todos">
+            <tr ng-repeat="l in p.tasks">
               <td>{{l.id}}</td>
               <td>{{l.name}}</td>
               <td>{{l.created_at}}</td>
