@@ -63,6 +63,28 @@ body{
             border-top: none;
           }
         }
+        .add_task{
+          text-align: left; 
+          form{
+            margin:0;
+            padding:0;
+            .input-append{
+              display: inline-block;
+            }
+            #appendedInputButtons{
+              width: 510px;
+              height: 22px;
+              border:none;
+              box-shadow: inset 1px 1px 2px #707070;
+            }
+            .btn.add_task_btn{
+              width: 108px;
+              height: 30px;
+              margin-left: -3px;
+              background: url(/img/add_task.jpg);
+            }
+          }
+        }
       }
     }
     .container{
@@ -79,10 +101,8 @@ body{
       font-size: 28px;
       line-height: 48px;
       height: 48px;
-      margin-top:0;
-      margin-bottom:0;
-      padding-top:0;
-      padding-bottom:0;
+      margin: 0;
+      padding: 0;
       text-shadow: 1px -1px 3px #999;
       color: #fff;
       display: block;
@@ -91,6 +111,11 @@ body{
     thead th{
       border: none;
       vertical-align: middle;
+      padding: 0 10px;
+      .edit_todo_list input{
+          display: inline-block;
+          margin: 0;
+      } 
     }
     #form_hidden{
       display: none;

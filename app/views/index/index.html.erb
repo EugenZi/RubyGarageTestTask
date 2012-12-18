@@ -26,20 +26,17 @@
                   
                 </th>
               </tr>
-              <tr class="block_middle">
+              <tr class="block_middle" ng-controller="TasksController">
                   <th>
-                      <img src="/img/plus.jpg" alt="">
+                      <img src="/img/plus.jpg" alt="" ng-click="clicker($event)">
                   </th>
-                  <th class="add_task">
-                      <form action="/add_task?list_id={{p.id}}">
-                        <input type="text" name="title" value="Start typing here to create a task...">
+                  <th class="add_task" colspan="3">
+                      <form action="/add_task?list_id={{p.id}}" ng-submit="addTodo($event)">
+                        <div class="input-append">
+                          <input id="appendedInputButtons" type="text" name="title" value="Start typing here to create a task...">
+                          <button class="btn add_task_btn" type="submit"></button>
+                        </div>
                       </form>
-                  </th>
-                  <th>
-                      
-                  </th>
-                  <th>
-                      
                   </th>
               </tr>
           </thead>
