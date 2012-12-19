@@ -1,3 +1,6 @@
+<div class="header">
+  <h1></h1>
+</div>
 <div ng-controller="ProjectsController" class="block">
     <div class="item" ng-repeat="p in itemsList">
       <table class="fill">
@@ -13,27 +16,21 @@
                 </th>
                 <th>
                   <a href="#" edit-todo-list="">
-                    <img src="/img/todo_edit.jpg" alt="description">
+                    <img src="/img/todo_list_edit.jpg" alt="description">
                   </a>
+                  <img src="/img/todo_list_actions_separator.jpg" alt="">
                   <a href="/delete_todo_list?id={{p.id}}" ng-click="deleteTodoList($event)">
-                    <img src="/img/todo_del.jpg" alt="description">
+                    <img src="/img/todo_list_delete.jpg" alt="description">
                   </a>
                 </th>
                 <th>
-                  
                 </th>
               </tr>
-              <tr class="block_middle" ng-controller="TasksController">
+              <tr class="block_middle">
                   <th>
                       <img src="/img/plus.jpg" alt="" ng-click="clicker($event)">
                   </th>
-                  <th class="add_task" colspan="3">
-                      <form action="/add_task?list_id={{p.id}}" ng-submit="addTodo()">
-                        <div class="input-append">
-                          <input id="appendedInputButtons" type="text" name="title" placeholder="Start typing here to create a task...">
-                          <button class="btn add_task_btn" type="submit"></button>
-                        </div>
-                      </form>
+                  <th class="add_task" colspan="3" ng-include src="templates.add_task.url">
                   </th>
               </tr>
           </thead>
@@ -43,35 +40,17 @@
                   <input type="checkbox" name="cancel" value="{{l.id}}">
                 </td>
                 <td>{{l.name}}</td>
-                <td>{{l.created_at}}</td>
-                <td>{{l.updated_at}}</td>
+                <td colspan="2">
+                  <a href=""><img src="/img/replace_todo.jpg" alt=""></a>
+                  <a href=""><img src="/img/todo_edit.jpg" alt=""></a>
+                  <a href=""><img src="/img/todo_delete.jpg" alt=""></a>
+                </td>
               </tr>
           </tbody>
       </table>
     </div>
-    <div id="form_hidden" class="item">
-      <table border="1" class="fill">
-          <thead>
-              <tr class="block_top">
-                <th>
-                  <img src="/img/todo_head_left.jpg" alt="description">
-                </th>
-                <th>
-                  <%= form_for @project, url: {action: "create_todo_list"}, html: {"ng-submit" => "addTodoList()"} do |f| %>
-                    <%= f.text_field :name, placeholder: "Create a new task list..." %>
-                  <% end %>
-                </th>
-                <th>
-                  <a href="#" class="delete_empty_todo_list" delete-block="">
-                    <img src="/img/todo_del.jpg" alt="description">
-                  </a>
-                </th>
-                <th>
-                  
-                </th>
-              </tr>
-          </thead>
-      </table>
+    <div id="form_hidden" class="item" ng-include src="templates.add_task_list.url">
+      
     </div>
     <div class="add_todo">
       <a href="/projects/create" ng-click="showTodoListForm($event)">
@@ -79,3 +58,5 @@
       </a>
     </div>
 </div>
+<%= render :partial => "add_task_form" %>
+<%= render :partial => "add_task_list_form" %>

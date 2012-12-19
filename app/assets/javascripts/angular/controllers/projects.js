@@ -2,11 +2,24 @@
 
 	global.ProjectsController = function($scope, $http) {
 
-	  	var _this = this;
-
 	  	$http.get('/list.json').success(function(data) {
 	    	$scope.itemsList = data;
 	  	});
+
+
+	  	$scope.templates = {
+		  	add_task_list: 
+		  	{
+			    name : 'add_task_list.html',
+			    url  : 'add_task_list.html'
+	    	},
+
+			add_task: 
+			{
+				name: 'add_task.html',
+				url: 'add_task.html'
+			}
+    	};
 
 	  	$scope.showTodoListForm = function($event) {
 	  		$("#form_hidden").show();
@@ -35,7 +48,6 @@
 
 		$scope.deleteTodoList = function($event) {
 			var target = $event.srcElement || $event.target;
-			console.log(target);
 			$.ajax({
 				url:  $(target).parent('a').attr('href'),
 				success: function(){
@@ -48,6 +60,23 @@
 			$event.preventDefault(true);
 
 		}
+		$scope.addTodo = function(){
+		  	$('.new_task').live("submit", function(event){
+		  		event.preventDefault(true);
+		  		var form = $(this);
+				$.ajax({
+					url:  form.attr('action'),
+					type: form.attr('method'),
+					data: form.serialize(),
+					success: function(request_data){
+						$http.get('/list.json').success(function(data) {
+		    				$scope.itemsList = data;
+		  				});
+						form.find('input[type=text]').val('');
+					}
+				});
+			});
+        }
 
 	};
 
