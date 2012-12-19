@@ -1,10 +1,12 @@
 (function(global, document){
 
+	evt = global.e || global.event;
+
 	global.TasksController = function($scope, $http){
 
-		$scope.addTodo = function($event) {
+		$scope.addTodo = function() {
 
-			var form = $($event.srcElement);
+			var form = $(evt.srcElement);
 
 			form.live("submit", function(event){ 
 	    		var data = form.serialize(),
@@ -21,15 +23,10 @@
 		  				form_table.remove();
 					}
 				});
-				event.preventDefault(true);
+				evt.preventDefault(true);
 	    	});
-	    	$event.preventDefault(true);
+	    	evt.preventDefault(true);
 		}
-	}
-
-	$scope.clicker = function($event){
-		console.log($event);
-		$event.preventDefault(true);
 	}
 
 })(window, window.document)
