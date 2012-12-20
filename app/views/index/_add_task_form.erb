@@ -1,0 +1,9 @@
+<script type="text/ng-template" id="add_task.html">
+    <%= form_for @task, url: {action: "create_todo"}, html: { id: nil, "ng-submit" => "addTodo()"} do |f| %>
+      <div class="input-append">
+        <%= f.text_field :name, placeholder: "Start typing here to create a task...", "class" => "add_test_task_input", id: nil %>
+        <input type="hidden" name="task[project_id]" value="{{p.id}}">
+        <%= submit_tag "", "class" => "btn add_task_btn" %>
+      </div>
+    <% end %>
+</script>

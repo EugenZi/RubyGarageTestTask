@@ -1,0 +1,21 @@
+<script type="text/ng-template" id="add_task_list.html">
+	<table border="1" class="fill">
+          <thead>
+              <tr class="block_top">
+                <th>
+                  <img src="/img/todo_head_left.jpg" alt="description">
+                </th>
+                <th>
+                  <%= form_for @project, url: {action: "create_todo_list"}, html: {"ng-submit" => "addTodoList()"} do |f| %>
+	    		  <%= f.text_field :name, placeholder: "Create a new task list..." %>
+				  <% end %>
+                </th>
+                <th colspan="2">
+                  <a href="#" class="delete_empty_todo_list" delete-block="">
+                    <img src="/img/todo_del.jpg" alt="description">
+                  </a>
+                </th>
+              </tr>
+          </thead>
+      </table>
+</script>
