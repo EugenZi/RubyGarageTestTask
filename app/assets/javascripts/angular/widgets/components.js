@@ -57,6 +57,20 @@
 	        	});
         	}
         })
+        .directive('hoverHighlight', function(){
+        	return function(scope, element, attrs){
+        		$(element).live("mouseover mouseout", function(event){
+	        		switch(event.type){
+	        			case('mouseover'): 
+	        				$(this).addClass('line-hovered');
+	        			break; 
+	        			case('mouseout'): 
+	        				$(this).removeClass('line-hovered');
+	        			break; 
+	        		}
+        		});
+        	}
+        })
    //      .directive("addTodo", function(){
    //      	return function(scope, element, attrs){
 			//   	$(element).live("submit", function(event){

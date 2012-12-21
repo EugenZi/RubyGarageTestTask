@@ -35,15 +35,17 @@
               </tr>
           </thead>
           <tbody>
-              <tr ng-repeat="l in p.tasks">
+              <tr ng-repeat="l in p.tasks" hover-highlight>
                 <td class="checkbox">
                   <input type="checkbox" name="cancel" value="{{l.id}}">
                 </td>
                 <td>{{l.name}}</td>
-                <td colspan="2">
-                  <a href=""><img src="/img/replace_todo.jpg" alt=""></a>
-                  <a href=""><img src="/img/todo_edit.jpg" alt=""></a>
-                  <a href=""><img src="/img/todo_delete.jpg" alt=""></a>
+                <td colspan="2" class="edit-buttons">
+                  <div class="buttons">
+                    <a href=""><img src="/img/replace_todo.jpg" alt=""></a>
+                    <a href=""><img src="/img/todo_edit.jpg" alt=""></a>
+                    <a href=""><img src="/img/todo_delete.jpg" alt=""></a>
+                  </div>
                 </td>
               </tr>
           </tbody>

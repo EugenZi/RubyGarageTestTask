@@ -29,6 +29,17 @@ body{
             tr{
               border-left: 1px solid #aaa;
               border-right: 1px solid #aaa;
+              &.line-hovered{
+                td{
+                  background:#fcfed5; 
+                  .buttons{
+                    display: inline-block;
+                    a{
+                      padding-right: 5px;
+                    }
+                  }
+                }
+              }
             }
             td{
               background: #fff;
@@ -38,7 +49,7 @@ body{
               line-height: 48px;
               font-size: 14px;
               font-weight: bold;
-              color: aaa; 
+              color: #aaa; 
               &.checkbox{
                 text-align: center;
                 padding: 0;
@@ -47,6 +58,11 @@ body{
                   display: inline-block;
                   margin:0;
                   padding: 0;
+                }
+              }
+              &.edit-buttons{
+                .buttons{
+                  display: none;
                 }
               }
             }
